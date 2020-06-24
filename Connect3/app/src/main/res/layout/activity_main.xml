@@ -11,6 +11,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onReset"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +28,7 @@
         android:layout_marginTop="33dp"
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="74dp"
-        android:text="Welcome to Connect 3"
+        android:text="Welcome! White turn."
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
@@ -52,8 +53,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="1"
-            app:layout_row="0"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="0" />
 
         <ImageView
             android:id="@+id/imageView1"
@@ -61,8 +61,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="0"
-            app:layout_row="0"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="0"/>
 
         <ImageView
             android:id="@+id/imageView3"
@@ -70,8 +69,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="2"
-            app:layout_row="0"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="0"/>
 
         <ImageView
             android:id="@+id/imageView5"
@@ -79,8 +77,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="1"
-            app:layout_row="1"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="1"/>
 
         <ImageView
             android:id="@+id/imageView4"
@@ -88,8 +85,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="0"
-            app:layout_row="1"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="1" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -97,8 +93,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="2"
-            app:layout_row="1"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="1"/>
 
         <ImageView
             android:id="@+id/imageView7"
@@ -106,8 +101,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="0"
-            app:layout_row="2"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="2"/>
 
         <ImageView
             android:id="@+id/imageView8"
@@ -115,8 +109,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="1"
-            app:layout_row="2"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="2"/>
 
         <ImageView
             android:id="@+id/imageView9"
@@ -124,8 +117,7 @@
             android:layout_height="114dp"
             android:onClick="dropIn"
             app:layout_column="2"
-            app:layout_row="2"
-            app:srcCompat="@drawable/chess_ndt60" />
+            app:layout_row="2" />
 
     </androidx.gridlayout.widget.GridLayout>
 
