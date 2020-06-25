@@ -15,9 +15,13 @@ public class MainActivity extends AppCompatActivity {
     int[] board = {2,2,2,2,2,2,2,2,2};
     int[][] wins = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
 
+    public void resetBoard() {
+        for (int i : board) {
+            board[i] = 2;
+        }
+    }
+
     public void dropIn(View view) {
-
-
 
         Log.i("Tag","dropIn method called.");
 
@@ -52,12 +56,17 @@ public class MainActivity extends AppCompatActivity {
 
                 if(activePlayer == 0) {
                     winner = "Black";
+                    Toast.makeText(getApplicationContext(), winner + " has won!", Toast.LENGTH_LONG).show();
+                    view1.setText("Click reset to play again!");
+                    resetBoard();
                 }
                 else {
                     winner = "White";
+                    Toast.makeText(getApplicationContext(), winner + " has won!", Toast.LENGTH_LONG).show();
+                    view1.setText("Click reset to play again!");
+                    resetBoard();
                 }
 
-                Toast.makeText(getApplicationContext(), winner + " has won!", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -91,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
         image9.setImageResource(0);
 
         view1.setText("Reset! White turn.");
+
+        resetBoard();
     }
 
     @Override
