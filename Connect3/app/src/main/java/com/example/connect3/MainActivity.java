@@ -13,14 +13,11 @@ public class MainActivity extends AppCompatActivity {
 
     int activePlayer = 0;
     int[] board = {2,2,2,2,2,2,2,2,2};
-    int[][] wins;
-
+    int[][] wins = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}};
 
     public void dropIn(View view) {
 
-        for(int i : board) {
-            System.out.println(i);
-        }
+
 
         Log.i("Tag","dropIn method called.");
 
@@ -35,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
             view1.setText("Black turn.");
             activePlayer = 1;
 
-            Log.i("Tag","White ");
-
+            Log.i("Tag","White " + counter);
         }
 
         else {
@@ -46,8 +42,23 @@ public class MainActivity extends AppCompatActivity {
             view1.setText("White turn.");
             activePlayer = 0;
 
-            Log.i("Tag","Black " );
+            Log.i("Tag","Black " + counter );
+        }
 
+        for (int[] winningPosition : wins) {
+            if(board[winningPosition[0]] == board[winningPosition[1]] && board[winningPosition[1]] == board[winningPosition[2]] && board[winningPosition[0]] != 2) {
+
+                String winner = "";
+
+                if(activePlayer == 0) {
+                    winner = "Black";
+                }
+                else {
+                    winner = "White";
+                }
+
+                Toast.makeText(getApplicationContext(), winner + " has won!", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
