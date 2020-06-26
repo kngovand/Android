@@ -2,9 +2,11 @@ package com.example.connect3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
 
     int activePlayer = 0; // 0 - white, 1 - black, 2 - null
+    boolean gameState = true;
     int[] board = {2,2,2,2,2,2,2,2,2}; // 3x3 grid, initialized to null values
     int[][] wins = {{0,1,2}, {3,4,5}, {6,7,8}, {0,3,6}, {1,4,7}, {2,5,8}, {0,4,8}, {2,4,6}}; // winning patterns
 
@@ -84,10 +87,23 @@ public class MainActivity extends AppCompatActivity {
 
         Log.i("Tag","onReset method called.");
 
-        activePlayer = 0;
+        resetBoard();
+
+        // androidx.gridlayout.widget.GridLayout gridLayout = findViewById(R.id.gridLayout);
 
         TextView view1 = findViewById(R.id.textView);
-        // is there a better way to write this?
+
+        // better way to loop through all imageviews
+/*        for (int i = 0; i < gridLayout.getChildCount() ; i++) {
+            ImageView counter = (ImageView) gridLayout.getChildAt(i);
+            counter.setImageDrawable(null);
+        }*/
+
+        activePlayer = 0;
+
+        view1.setText("Reset! White turn.");
+
+
         ImageView image1 = findViewById(R.id.imageView1);
         ImageView image2 = findViewById(R.id.imageView2);
         ImageView image3 = findViewById(R.id.imageView3);
@@ -107,10 +123,6 @@ public class MainActivity extends AppCompatActivity {
         image7.setImageResource(0);
         image8.setImageResource(0);
         image9.setImageResource(0);
-
-        view1.setText("Reset! White turn.");
-
-        resetBoard();
     }
 
     // resets board array to null values again
