@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ListView listView = findViewById(R.id.ListView);
+ /*       final ListView listView = findViewById(R.id.ListView);
 
         final ArrayList<String> myArray = new ArrayList<>();
 
@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
+
                 Log.i("tag", "position " + position);
 
                 myArray.remove(position);
 
                 listView.setAdapter(arrayAdapter);
             }
-        });
+        });*/
 
 
 
