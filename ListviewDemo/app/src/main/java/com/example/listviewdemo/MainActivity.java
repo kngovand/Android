@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -19,6 +21,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FloatingActionButton button = findViewById(R.id.floating_action_button);
+
+        button.setOnClickListener(new FloatingActionButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("tag","i clicked!");
+            }
+        });
  /*       final ListView listView = findViewById(R.id.ListView);
 
         final ArrayList<String> myArray = new ArrayList<>();
