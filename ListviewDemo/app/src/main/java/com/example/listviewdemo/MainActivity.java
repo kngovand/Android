@@ -3,6 +3,9 @@ package com.example.listviewdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -16,17 +19,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView listView = findViewById(R.id.ListView);
+        final ListView listView = findViewById(R.id.ListView);
 
-        ArrayList<String> array = new ArrayList<>();
+        final ArrayList<String> myArray = new ArrayList<>();
 
-        array.add("john");
-        array.add("mary");
-        array.add("cody");
+        myArray.add("john");
+        myArray.add("mary");
+        myArray.add("cody");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, array);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myArray);
 
         listView.setAdapter(arrayAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                
+                Log.i("tag", "position " + position);
+
+                myArray.remove(position);
+
+                listView.setAdapter(arrayAdapter);
+            }
+        });
+
+
+
+
 
     }
 }
