@@ -13,6 +13,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +23,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ArrayList<String> array = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>(Arrays.asList("Mary", "John", "Pong"));
+
         FloatingActionButton button = findViewById(R.id.fab);
+
+        ListView listView = findViewById(R.id.listView);
+
+        // add all names to primary array
+        for(String name : names) {
+            array.add(name);
+        }
+
+        // instantiate and plugging in array
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, array);
+
+        listView.setAdapter(arrayAdapter);
+
 
         button.setOnClickListener(new FloatingActionButton.OnClickListener() {
             @Override
@@ -29,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("tag","i clicked!");
             }
         });
+
+
  /*       final ListView listView = findViewById(R.id.ListView);
 
         final ArrayList<String> myArray = new ArrayList<>();
