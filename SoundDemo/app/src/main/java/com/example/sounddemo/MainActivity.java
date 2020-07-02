@@ -1,7 +1,6 @@
 package com.example.sounddemo;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -23,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
     public void play(View view) {
         TextView view1 = (TextView) findViewById(R.id.textView);
         mediaPlayer.start();
-        view1.setText("Tu tu tu tu");
+        view1.setText("!! Tu tu tu tu !!");
     }
 
     //pause song
     public void pause(View view) {
         TextView view1 = (TextView) findViewById(R.id.textView);
         mediaPlayer.pause();
-        view1.setText("It's quiet here...");
+        view1.setText("It's quiet in here...");
     }
 
     @Override
@@ -61,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.i("tag", Integer.toString(progress));
 
-                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,progress,0);
+                audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, progress, 0);
             }
 
             @Override
@@ -74,7 +73,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        // scrub bar for more accuracy?
     }
 }
