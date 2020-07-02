@@ -15,6 +15,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,12 +24,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String> array = new ArrayList<>();
-        ArrayList<String> names = new ArrayList<>(Arrays.asList("Mary", "John", "Pong"));
+        final ArrayList<String> names = new ArrayList<>(Arrays.asList("Mary", "John", "Pong"));
+        final ArrayList<String> array = new ArrayList<>();
 
         FloatingActionButton button = findViewById(R.id.fab);
 
-        ListView listView = findViewById(R.id.listView);
+        final ListView listView = findViewById(R.id.listView);
 
         // add all names to primary array
         for(String name : names) {
@@ -36,46 +37,33 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // instantiate and plugging in array
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, array);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, array);
 
         listView.setAdapter(arrayAdapter);
 
+        // for removing item in array on click
+        listView.setOnItemClickListener(new ListView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("tag","listview item clicked!");
+
+                array.remove(position);
+                listView.setAdapter(arrayAdapter);
+            }
+        });
 
         button.setOnClickListener(new FloatingActionButton.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("tag","i clicked!");
+                Log.i("tag","fab clicked!");
+
+                int rnd = new Random().nextInt(names.size());
+                array.add(names.get(rnd));
+
+                // refresh adapter to show new names
+                listView.setAdapter(arrayAdapter);
+
             }
         });
-
-
- /*       final ListView listView = findViewById(R.id.ListView);
-
-        final ArrayList<String> myArray = new ArrayList<>();
-
-        myArray.add("john");
-        myArray.add("mary");
-        myArray.add("cody");
-
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myArray);
-
-        listView.setAdapter(arrayAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Log.i("tag", "position " + position);
-
-                myArray.remove(position);
-
-                listView.setAdapter(arrayAdapter);
-            }
-        });*/
-
-
-
-
-
     }
 }
