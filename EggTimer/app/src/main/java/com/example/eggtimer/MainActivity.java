@@ -18,12 +18,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // user defined time on seekbar
         final int[] timeInSeconds = {0};
 
-        final Button button = findViewById(R.id.startButton);
+        final Button startButton = findViewById(R.id.startButton);
+        final Button resetButton = findViewById(R.id.resetButton);
         final SeekBar seekBar = findViewById(R.id.seekBar);
         final TextView text = findViewById(R.id.textView);
 
+        // max 1200 seconds
         seekBar.setMax(1200);
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -36,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
                 int seconds = progress % 60;
 
                 String time = String.format("%02d:%02d", minutes, seconds);
+
                 text.setText(time);
                 timeInSeconds[0] = progress;
-
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {}
@@ -47,12 +50,13 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
-        button.setOnClickListener(new Button.OnClickListener() {
+        startButton.setOnClickListener(new Button.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 seekBar.setEnabled(false);
-                button.setText("Stop");
+                startButton.setVisibility(View.GONE);
+
 
                 int time = timeInSeconds[0];
 
