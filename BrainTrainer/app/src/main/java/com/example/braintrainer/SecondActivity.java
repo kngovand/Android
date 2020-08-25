@@ -8,6 +8,10 @@ import android.view.View;
 
 public class SecondActivity extends AppCompatActivity {
 
+    public void chooseAnswer(View view) {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
