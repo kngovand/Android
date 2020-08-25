@@ -9,21 +9,18 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button goButton;
+
+    public void start(View view) {
+        Intent intent = new Intent(getBaseContext(), SecondActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button =  findViewById(R.id.goButton);
-
-        button.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent(getBaseContext(), SecondActivity.class);
-                startActivity(intent);
-            }
-        });
+        goButton =  findViewById(R.id.goButton);
     }
 }
