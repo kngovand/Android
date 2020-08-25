@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Button goButton;
 
     public void start(View view) {
-        Intent intent = new Intent(getBaseContext(), SecondActivity.class);
+        Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
 
@@ -21,6 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        goButton =  findViewById(R.id.goButton);
+        goButton = findViewById(R.id.goButton);
     }
 }
